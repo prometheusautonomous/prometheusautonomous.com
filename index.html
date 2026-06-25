@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prometheus Autonomous — JENU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0a0a0a;
+  --fog:#6b6b6b;
+  --rule:rgba(0,0,0,0.1);
+  --teal:#0e7c7b;
+  --white:#ffffff;
+  --off:#f7f7f5;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4vw;height:60px;
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(8px);
+}
+.nav-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;letter-spacing:0.14em;
+  color:var(--ink);text-decoration:none;
+}
+.nav-brand em{color:var(--teal);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{
+  font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--fog);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--white);background:var(--ink);
+  padding:0.5rem 1.3rem;text-decoration:none;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--teal)}
+
+/* HERO */
+#hero{
+  height:100vh;min-height:580px;
+  padding-top:60px;
+  position:relative;overflow:hidden;
+  background:var(--off);
+}
+.hero-bg{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+}
+.hero-bg-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(160deg,#e4ecec 0%,#c6d5d5 60%,#b4c8c8 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-bg-placeholder svg{opacity:0.13;width:60%;max-width:760px}
+.hero-overlay{background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%);
+  position:absolute;bottom:0;left:0;right:0;
+  padding:3rem 4vw 3.5rem;
+  background:linear-gradient(to top,rgba(247,247,245,0.97) 0%,transparent 100%);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
+}
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,9vw,8rem);
+  letter-spacing:0.03em;line-height:0.92;
+  color:var(--white);
+}
+h1 em{color:var(--teal);font-style:normal}
+.hero-right{text-align:right;max-width:320px;flex-shrink:0}
+.hero-sub{
+  font-size:0.82rem;color:rgba(255,255,255,0.75);
+  line-height:1.75;margin-bottom:1.6rem;
+}
+.btn{
+  display:inline-block;
+  font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
+  padding:0.7rem 1.6rem;text-decoration:none;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.btn-fill{background:var(--ink);color:var(--white);border:1px solid var(--ink)}
+.btn-fill:hover{background:var(--teal);border-color:var(--teal)}
+.btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink);margin-right:0.6rem}
+.btn-line:hover{background:var(--ink);color:var(--white)}
+
+/* INTRO */
+.intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  padding:5.5rem 4vw;gap:4rem;align-items:start;
+  border-bottom:1px solid var(--rule);
+}
+.eyebrow{
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.2rem;font-weight:500;display:block;
+}
+h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  letter-spacing:0.04em;line-height:1.05;color:var(--ink);
+}
+.body{font-size:0.88rem;color:var(--fog);line-height:1.85;margin-top:1.4rem}
+
+/* AIRCRAFT */
+#aircraft{border-bottom:1px solid var(--rule)}
+.aircraft-img{
+  width:100%;aspect-ratio:21/9;
+  object-fit:cover;display:block;
+}
+.aircraft-placeholder{
+  width:100%;aspect-ratio:21/9;
+  background:linear-gradient(135deg,#dbe8e8 0%,#c3d4d4 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.aircraft-placeholder svg{opacity:0.13;width:52%;max-width:620px}
+.aircraft-bar{
+  padding:1.4rem 4vw;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--rule);
+}
+.aircraft-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.4rem;letter-spacing:0.1em;color:var(--ink);
+}
+.aircraft-tags{display:flex;gap:1.2rem}
+.tag{
+  font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fog);
+}
+
+/* SPECS — 3 facts only, no numbers that reveal financials */
+.specs{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  border-bottom:1px solid var(--rule);
+}
+.spec{
+  padding:2.2rem 4vw;
+  border-right:1px solid var(--rule);
+}
+.spec:last-child{border-right:none}
+.spec-key{
+  font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--fog);margin-bottom:0.6rem;
+}
+.spec-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;letter-spacing:0.06em;color:var(--ink);line-height:1;
+}
+.spec-note{font-size:0.75rem;color:var(--fog);margin-top:0.35rem}
+
+/* SPMC */
+.spmc{
+  padding:4rem 4vw;
+  background:var(--ink);
+  display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;
+}
+.spmc-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,4vw,3rem);
+  letter-spacing:0.05em;color:var(--white);line-height:1.05;
+}
+.spmc-title em{color:var(--teal);font-style:normal}
+.spmc-body{font-size:0.86rem;color:rgba(255,255,255,0.5);line-height:1.85}
+
+/* REGIONS */
+.regions{padding:5.5rem 4vw;border-bottom:1px solid var(--rule)}
+.regions-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:3rem;
+}
+.regions-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+}
+.region{
+  background:var(--white);padding:2rem 2rem 1.8rem;
+  transition:background .2s;
+}
+.region:hover{background:var(--off)}
+.region-n{
+  font-size:0.62rem;letter-spacing:0.18em;color:var(--fog);margin-bottom:1rem;
+}
+.region-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;letter-spacing:0.06em;color:var(--ink);margin-bottom:0.5rem;
+}
+.region-desc{font-size:0.76rem;color:var(--fog);line-height:1.65}
+
+/* CONTACT */
+#contact{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.contact-l{padding:5.5rem 4vw;border-right:1px solid var(--rule)}
+.contact-r{padding:5.5rem 4vw}
+.contact-l h2{margin-top:0.6rem;margin-bottom:1.2rem}
+.contact-l p{font-size:0.86rem;color:var(--fog);line-height:1.85;max-width:360px;margin-bottom:2rem}
+.contact-detail{font-size:0.8rem;color:var(--fog);margin-bottom:0.6rem}
+.contact-detail strong{color:var(--ink);font-weight:500;display:block;margin-bottom:0.15rem}
+.conf{
+  margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);
+  font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);line-height:1.7;
+}
+.field{margin-bottom:1.5rem}
+.field label{
+  display:block;font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--fog);margin-bottom:0.5rem;
+}
+.field input,.field select,.field textarea{
+  width:100%;border:none;border-bottom:1px solid rgba(0,0,0,0.15);
+  background:transparent;font-family:'Inter',sans-serif;font-size:0.88rem;
+  color:var(--ink);padding:0.5rem 0;outline:none;
+  transition:border-color .2s;border-radius:0;-webkit-appearance:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--ink)}
+.field textarea{resize:none;height:80px}
+.submit{
+  width:100%;background:var(--ink);color:var(--white);border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.14em;
+  text-transform:uppercase;padding:0.95rem;margin-top:0.4rem;transition:background .2s;
+}
+.submit:hover{background:var(--teal)}
+
+/* FOOTER */
+footer{
+  padding:1.8rem 4vw;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rule);
+}
+.f-brand{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.12em;color:var(--fog)}
+.f-copy{font-size:0.68rem;color:var(--fog)}
+
+/* FADE */
+.fu{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fu.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .intro,#contact{grid-template-columns:1fr}
+  .contact-l{border-right:none;border-bottom:1px solid var(--rule)}
+  .specs{grid-template-columns:1fr 1fr}
+  .spec{border-right:none;border-bottom:1px solid var(--rule)}
+  .spmc{grid-template-columns:1fr}
+  .regions-grid{grid-template-columns:1fr 1fr}
+  .regions-head{flex-direction:column;align-items:flex-start;gap:0.5rem}
+  .hero-overlay{background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%);flex-direction:column;align-items:flex-start}
+  .hero-right{text-align:left;max-width:100%}
+  .nav-links{display:none}
+  .aircraft-tags{display:none}
+}
+@media(max-width:540px){
+  .regions-grid,.specs{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.fu{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#hero"><img src="logo.png" alt="Prometheus Autonomous" style="height:38px;width:auto;vertical-align:middle;"></a>
+  <ul class="nav-links">
+    <li><a href="#aircraft">Aircraft</a></li>
+    <li><a href="#regions">Regions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Investor Inquiry</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Swap placeholder for: <img src="jenu-hero.jpg" alt="JENU" class="hero-bg"> -->
+  <img src="couverture.png" alt="JENU autonomous cargo aircraft" class="hero-bg">
+  <div class="hero-overlay">
+    <h1>AUTONOMOUS<br>CARGO.<br><em>BEYOND</em><br>LIMITS.</h1>
+    <div class="hero-right">
+      <p class="hero-sub">A fixed-wing autonomous cargo aircraft engineered from day one for airworthiness — built for the routes that infrastructure left behind.</p>
+      <a class="btn btn-line" href="#aircraft">Explore JENU</a>
+      <a class="btn btn-fill" href="#contact">Request Package</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="intro fu">
+  <div>
+    <span class="eyebrow">The Mission</span>
+    <h2>WHERE ROADS END,<br>WE DELIVER.</h2>
+  </div>
+  <p class="body">
+    Prometheus Autonomous is developing the JENU — a fixed-wing STOL aircraft engineered from the ground up for airworthiness, operating without a pilot on board. Built to reach destinations that traditional aviation cannot serve.
+  </p>
+</div>
+
+<!-- AIRCRAFT -->
+<section id="aircraft">
+  <!-- Swap for: <img src="jenu-side.jpg" alt="JENU aircraft" class="aircraft-img"> -->
+  <div class="aircraft-placeholder">
+    <svg viewBox="0 0 900 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M450 90 L830 108 L780 118 L450 103 L120 118 L70 108 Z" fill="#0a0a0a"/>
+      <path d="M416 90 L468 40 L483 90 Z" fill="#0a0a0a"/>
+      <path d="M438 102 L462 102 L472 134 L428 134 Z" fill="#0a0a0a"/>
+      <circle cx="450" cy="93" r="7" fill="#0e7c7b"/>
+    </svg>
+  </div>
+  <div class="aircraft-bar">
+    <span class="aircraft-name">JENU</span>
+    <div class="aircraft-tags">
+      <span class="tag">Fixed-Wing</span>
+      <span class="tag">STOL</span>
+      <span class="tag">Autonomous</span>
+      <span class="tag">Airworthiness-by-Design</span>
+    </div>
+  </div>
+  <div class="specs">
+    <div class="spec fu">
+      <div class="spec-key">Configuration</div>
+      <div class="spec-val">Fixed-Wing STOL</div>
+      <div class="spec-note">Short take-off & landing</div>
+    </div>
+    <div class="spec fu">
+      <div class="spec-key">Operation</div>
+      <div class="spec-val">Autonomous</div>
+      <div class="spec-note">No on-board pilot required</div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- SPMC -->
+<div class="spmc fu">
+  <div class="spmc-title">SINGLE PILOT<br><em>MULTI-CRAFT</em><br>CONCEPT</div>
+  <div class="spmc-body">
+    One licensed remote pilot simultaneously oversees multiple JENU aircraft in operation. The SPMC concept is the core economic differentiator of the JENU program — dramatically reducing cost per tonne-kilometre versus any piloted or single-aircraft-per-operator alternative. Full regulatory compliance is maintained across all concurrent operations.
+  </div>
+</div>
+
+<!-- REGIONS -->
+<div class="regions" id="regions">
+  <div class="regions-head fu">
+    <div>
+      <span class="eyebrow">Field Performance</span>
+      <h2>BUILT FOR<br>ANY SURFACE.</h2>
+    </div>
+    <p style="font-size:0.82rem;color:var(--fog);max-width:280px;line-height:1.75">
+      Landing gear engineered for grass, gravel, dirt, and snow — JENU goes where conventional cargo aircraft cannot.
+    </p>
+  </div>
+  <div class="regions-grid">
+    <div class="region fu"><div class="region-n">01</div><div class="region-name">GRAVEL STRIPS</div><div class="region-desc">Unpaved gravel runways common in northern and remote territories — JENU operates on surfaces inaccessible to conventional cargo aircraft.</div></div>
+    <div class="region fu"><div class="region-n">02</div><div class="region-name">GRASS FIELDS</div><div class="region-desc">Unimproved grass airstrips adjacent to farming, humanitarian, and remote industrial operations.</div></div>
+    <div class="region fu"><div class="region-n">03</div><div class="region-name">DIRT RUNWAYS</div><div class="region-desc">Compacted earth strips in arid and semi-arid environments where paved infrastructure does not exist.</div></div>
+    <div class="region fu"><div class="region-n">04</div><div class="region-name">SNOW & ICE</div><div class="region-desc">Seasonal ice runways and compacted snow strips serving arctic and sub-arctic operations year-round.</div></div>
+    <div class="region fu"><div class="region-n">05</div><div class="region-name">SHORT PAVED STRIPS</div><div class="region-desc">Existing regional airstrips too short for conventional turboprop cargo aircraft — fully accessible to JENU.</div></div>
+    <div class="region fu"><div class="region-n">06</div><div class="region-name">BUSH STRIPS</div><div class="region-desc">Narrow cleared strips carved into forests or tundra, serving isolated communities with no alternative access.</div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-l fu">
+    <span class="eyebrow">Investor Relations</span>
+    <h2>JOIN THE<br>PROGRAM.</h2>
+    <p>Prometheus Autonomous welcomes qualified investors and strategic partners. Full documentation is available under NDA.</p>
+    
+    <div class="contact-detail" style="margin-top:1rem">
+      <strong>Investor inquiries</strong>
+      investors@prometheusautonomous.com
+    </div>
+    <div class="conf">
+      This site is intended for qualified investors only.<br>
+      All materials shared are strictly confidential.
+    </div>
+  </div>
+  <div class="contact-r fu">
+    <div class="field"><label>Full Name</label><input type="text" id="fn" placeholder="Your name"/></div>
+    <div class="field"><label>Organization</label><input type="text" placeholder="Fund, firm, or company"/></div>
+    <div class="field"><label>Email Address</label><input type="email" id="fe" placeholder="you@organization.com"/></div>
+    <div class="field">
+      <label>Area of Interest</label>
+      <select>
+        <option value="">Select one</option>
+        <option>Equity Investment</option>
+        <option>Strategic Partnership</option>
+        <option>Government / Defence</option>
+        <option>Request Full Business Plan</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="field"><label>Message</label><textarea placeholder="Tell us about your interest…"></textarea></div>
+    <button class="submit" onclick="handleSubmit()">Send Inquiry</button>
+  </div>
+</section>
+
+<footer>
+  <span class="f-brand">PROMETHEUS AUTONOMOUS INC.</span>
+  <span class="f-copy">© 2026 Prometheus Autonomous Inc. — Confidential</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}})},{threshold:0.08});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+function handleSubmit(){
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  if(!n||!e){alert('Please fill in your name and email.');return}
+  alert('Thank you, '+n+'. We will be in touch.')
+}
+</script>
+</body>
+</html>
