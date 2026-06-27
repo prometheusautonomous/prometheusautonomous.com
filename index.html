@@ -23,66 +23,102 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);lin
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 4vw;height:60px;
-  background:rgba(255,255,255,0.95);
-  border-bottom:1px solid var(--rule);
-  backdrop-filter:blur(8px);
-}
-.nav-brand{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.1rem;letter-spacing:0.14em;
-  color:var(--ink);text-decoration:none;
-}
-.nav-brand em{color:var(--teal);font-style:normal}
-.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
-.nav-links a{
-  font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--fog);text-decoration:none;transition:color .2s;
-}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{
-  font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--white);background:var(--ink);
-  padding:0.5rem 1.3rem;text-decoration:none;
-  transition:background .2s;
-}
-.nav-cta:hover{background:var(--teal)}
+  padding:0 4vw;height:115px;
+  background:rgba(10,22,40,0.82);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  backdrop-filter:blur(10px);
+}.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.14em;color:var(--white);text-decoration:none;}
+.nav-links{display:flex;align-items:center;gap:3.5rem;list-style:none}
+.nav-links a{font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .2s;font-weight:700;}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);background:transparent;border:1px solid rgba(255,255,255,0.7);padding:0.5rem 1.3rem;text-decoration:none;transition:background .2s,color .2s;font-weight:600;}
+.nav-cta:hover{background:var(--white);color:var(--ink)}
 
-/* HERO */
-#hero{
-  height:100vh;min-height:580px;
-  padding-top:60px;
-  position:relative;overflow:hidden;
-  background:var(--off);
+/* HERO WRAPPER — les deux slides occupent le même espace */
+#hero-wrapper{
+  position:relative;
+  height:100vh;
+  min-height:580px;
+  overflow:hidden;
 }
-.hero-bg{
+
+/* SLIDE COMMUN */
+.slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.slide-bg{
   width:100%;height:100%;
   object-fit:cover;object-position:center;
   display:block;
 }
-.hero-bg-placeholder{
-  width:100%;height:100%;
-  background:linear-gradient(160deg,#e4ecec 0%,#c6d5d5 60%,#b4c8c8 100%);
-  display:flex;align-items:center;justify-content:center;
+
+/* SLIDE 1 — PISTE */
+#slide-piste{
+  z-index:2;
+  opacity:1;
+  transition:opacity 1.8s ease, transform 1.8s ease;
+  transform:scale(1);
 }
-.hero-bg-placeholder svg{opacity:0.13;width:60%;max-width:760px}
-.hero-overlay{background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%);
-  position:absolute;bottom:0;left:0;right:0;
+#slide-piste.exit{
+  opacity:0;
+  transform:scale(1.06);
+}
+.piste-overlay{
+  position:absolute;inset:0;
+  padding-top:130px;
+  background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  gap:0;
+  padding-bottom:8vh;
+}
+.maple-leaf{
+  width:clamp(140px,18vw,240px);
+  height:auto;
+  margin-bottom:1.2rem;
+  filter:drop-shadow(0 4px 24px rgba(0,0,0,0.4));
+}
+.piste-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.6rem,6vw,5.5rem);
+  letter-spacing:0.04em;line-height:1.02;
+  color:var(--white);
+}
+.piste-title em{color:#F5C842;font-style:normal}
+.piste-sub{
+  margin-top:1.1rem;
+  font-size:clamp(0.6rem,1.1vw,0.8rem);
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+}
+
+/* SLIDE 2 — AVION */
+#slide-avion{
+  z-index:1;
+  opacity:1;
+}
+.avion-overlay{
+  position:absolute;inset:0;
   padding:3rem 4vw 3.5rem;
-  background:linear-gradient(to top,rgba(247,247,245,0.97) 0%,transparent 100%);
-  display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
+  padding-top:calc(130px + 3vh);
+  background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);
+  display:flex;flex-direction:column;justify-content:flex-start;
 }
 h1{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(4rem,9vw,8rem);
-  letter-spacing:0.03em;line-height:0.92;
+  font-size:clamp(2.3rem,4.2vw,3.9rem);
+  letter-spacing:0.03em;line-height:0.95;
   color:var(--white);
+  max-width:40%;
 }
 h1 em{color:var(--teal);font-style:normal}
-.hero-right{text-align:right;max-width:320px;flex-shrink:0}
-.hero-sub{
-  font-size:0.82rem;color:rgba(255,255,255,0.75);
-  line-height:1.75;margin-bottom:1.6rem;
+.hero-bottom{
+  position:absolute;
+  bottom:3.5rem;
+  right:4vw;
 }
 .btn{
   display:inline-block;
@@ -90,110 +126,46 @@ h1 em{color:var(--teal);font-style:normal}
   padding:0.7rem 1.6rem;text-decoration:none;
   transition:background .2s,color .2s,border-color .2s;
 }
+.btn-line{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.6)}
+.btn-line:hover{background:var(--white);color:var(--ink)}
 .btn-fill{background:var(--ink);color:var(--white);border:1px solid var(--ink)}
 .btn-fill:hover{background:var(--teal);border-color:var(--teal)}
-.btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink);margin-right:0.6rem}
-.btn-line:hover{background:var(--ink);color:var(--white)}
 
 /* INTRO */
-.intro{
-  display:grid;grid-template-columns:1fr 1fr;
-  padding:5.5rem 4vw;gap:4rem;align-items:start;
-  border-bottom:1px solid var(--rule);
-}
-.eyebrow{
-  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--teal);margin-bottom:1.2rem;font-weight:500;display:block;
-}
-h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2.2rem,4vw,3.4rem);
-  letter-spacing:0.04em;line-height:1.05;color:var(--ink);
-}
+.intro{display:grid;grid-template-columns:1fr 1fr;padding:5.5rem 4vw;gap:4rem;align-items:start;border-bottom:1px solid var(--rule);}
+.eyebrow{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1.2rem;font-weight:500;display:block;}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:0.04em;line-height:1.05;color:var(--ink);}
 .body{font-size:0.88rem;color:var(--fog);line-height:1.85;margin-top:1.4rem}
 
 /* AIRCRAFT */
 #aircraft{border-bottom:1px solid var(--rule)}
-.aircraft-img{
-  width:100%;aspect-ratio:21/9;
-  object-fit:cover;display:block;
-}
-.aircraft-placeholder{
-  width:100%;aspect-ratio:21/9;
-  background:linear-gradient(135deg,#dbe8e8 0%,#c3d4d4 100%);
-  display:flex;align-items:center;justify-content:center;
-}
+.aircraft-placeholder{width:100%;aspect-ratio:21/9;background:linear-gradient(135deg,#dbe8e8 0%,#c3d4d4 100%);display:flex;align-items:center;justify-content:center;}
 .aircraft-placeholder svg{opacity:0.13;width:52%;max-width:620px}
-.aircraft-bar{
-  padding:1.4rem 4vw;
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid var(--rule);
-}
-.aircraft-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.4rem;letter-spacing:0.1em;color:var(--ink);
-}
+.aircraft-bar{padding:1.4rem 4vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);}
+.aircraft-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.1em;color:var(--ink);}
 .aircraft-tags{display:flex;gap:1.2rem}
-.tag{
-  font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fog);
-}
-
-/* SPECS — 3 facts only, no numbers that reveal financials */
-.specs{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  border-bottom:1px solid var(--rule);
-}
-.spec{
-  padding:2.2rem 4vw;
-  border-right:1px solid var(--rule);
-}
+.tag{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fog);}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:1px solid var(--rule);}
+.spec{padding:2.2rem 4vw;border-right:1px solid var(--rule);}
 .spec:last-child{border-right:none}
-.spec-key{
-  font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--fog);margin-bottom:0.6rem;
-}
-.spec-val{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.6rem;letter-spacing:0.06em;color:var(--ink);line-height:1;
-}
+.spec-key{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--fog);margin-bottom:0.6rem;}
+.spec-val{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--ink);line-height:1;}
 .spec-note{font-size:0.75rem;color:var(--fog);margin-top:0.35rem}
 
 /* SPMC */
-.spmc{
-  padding:4rem 4vw;
-  background:var(--ink);
-  display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;
-}
-.spmc-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2rem,4vw,3rem);
-  letter-spacing:0.05em;color:var(--white);line-height:1.05;
-}
+.spmc{padding:4rem 4vw;background:var(--ink);display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;}
+.spmc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.05em;color:var(--white);line-height:1.05;}
 .spmc-title em{color:var(--teal);font-style:normal}
 .spmc-body{font-size:0.86rem;color:rgba(255,255,255,0.5);line-height:1.85}
 
 /* REGIONS */
 .regions{padding:5.5rem 4vw;border-bottom:1px solid var(--rule)}
-.regions-head{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  margin-bottom:3rem;
-}
-.regions-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:1px;background:var(--rule);border:1px solid var(--rule);
-}
-.region{
-  background:var(--white);padding:2rem 2rem 1.8rem;
-  transition:background .2s;
-}
+.regions-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;}
+.regions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.region{background:var(--white);padding:2rem 2rem 1.8rem;transition:background .2s;}
 .region:hover{background:var(--off)}
-.region-n{
-  font-size:0.62rem;letter-spacing:0.18em;color:var(--fog);margin-bottom:1rem;
-}
-.region-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.5rem;letter-spacing:0.06em;color:var(--ink);margin-bottom:0.5rem;
-}
+.region-n{font-size:0.62rem;letter-spacing:0.18em;color:var(--fog);margin-bottom:1rem;}
+.region-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.06em;color:var(--ink);margin-bottom:0.5rem;}
 .region-desc{font-size:0.76rem;color:var(--fog);line-height:1.65}
 
 /* CONTACT */
@@ -204,36 +176,17 @@ h2{
 .contact-l p{font-size:0.86rem;color:var(--fog);line-height:1.85;max-width:360px;margin-bottom:2rem}
 .contact-detail{font-size:0.8rem;color:var(--fog);margin-bottom:0.6rem}
 .contact-detail strong{color:var(--ink);font-weight:500;display:block;margin-bottom:0.15rem}
-.conf{
-  margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);
-  font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);line-height:1.7;
-}
+.conf{margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);line-height:1.7;}
 .field{margin-bottom:1.5rem}
-.field label{
-  display:block;font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--fog);margin-bottom:0.5rem;
-}
-.field input,.field select,.field textarea{
-  width:100%;border:none;border-bottom:1px solid rgba(0,0,0,0.15);
-  background:transparent;font-family:'Inter',sans-serif;font-size:0.88rem;
-  color:var(--ink);padding:0.5rem 0;outline:none;
-  transition:border-color .2s;border-radius:0;-webkit-appearance:none;
-}
+.field label{display:block;font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--fog);margin-bottom:0.5rem;}
+.field input,.field select,.field textarea{width:100%;border:none;border-bottom:1px solid rgba(0,0,0,0.15);background:transparent;font-family:'Inter',sans-serif;font-size:0.88rem;color:var(--ink);padding:0.5rem 0;outline:none;transition:border-color .2s;border-radius:0;-webkit-appearance:none;}
 .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--ink)}
 .field textarea{resize:none;height:80px}
-.submit{
-  width:100%;background:var(--ink);color:var(--white);border:none;cursor:pointer;
-  font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.14em;
-  text-transform:uppercase;padding:0.95rem;margin-top:0.4rem;transition:background .2s;
-}
+.submit{width:100%;background:var(--ink);color:var(--white);border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.95rem;margin-top:0.4rem;transition:background .2s;}
 .submit:hover{background:var(--teal)}
 
 /* FOOTER */
-footer{
-  padding:1.8rem 4vw;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rule);
-}
+footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rule);}
 .f-brand{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.12em;color:var(--fog)}
 .f-copy{font-size:0.68rem;color:var(--fog)}
 
@@ -250,10 +203,9 @@ footer{
   .spmc{grid-template-columns:1fr}
   .regions-grid{grid-template-columns:1fr 1fr}
   .regions-head{flex-direction:column;align-items:flex-start;gap:0.5rem}
-  .hero-overlay{background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%);flex-direction:column;align-items:flex-start}
-  .hero-right{text-align:left;max-width:100%}
   .nav-links{display:none}
   .aircraft-tags{display:none}
+  .maple-leaf{width:120px}
 }
 @media(max-width:540px){
   .regions-grid,.specs{grid-template-columns:1fr}
@@ -264,8 +216,16 @@ footer{
 <body>
 
 <nav>
-  <a class="nav-brand" href="#hero"><img src="logo.png" alt="Prometheus Autonomous" style="height:38px;width:auto;vertical-align:middle;"></a>
-  <ul class="nav-links">
+  <div style="margin-left:4vw;display:flex;align-items:center;gap:0.8rem;">
+    <a href="#hero-wrapper" style="text-decoration:none;line-height:0;flex-shrink:0;">
+      <img src="Logo%20bon%201.png" alt="Prometheus Autonomous" style="height:110px;width:auto;display:block;">
+    </a>
+    <div style="display:flex;flex-direction:column;line-height:1.2;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.18em;color:var(--white);">PROMETHEUS</span>
+      <span style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.25em;color:rgba(255,255,255,0.55);text-transform:uppercase;">Autonomous</span>
+    </div>
+  </div>
+  <ul class="nav-links" style="position:absolute;left:50%;transform:translateX(-50%);">
     <li><a href="#aircraft">Aircraft</a></li>
     <li><a href="#regions">Regions</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -273,19 +233,41 @@ footer{
   <a class="nav-cta" href="#contact">Investor Inquiry</a>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <!-- Swap placeholder for: <img src="jenu-hero.jpg" alt="JENU" class="hero-bg"> -->
-  <img src="couverture.png" alt="JENU autonomous cargo aircraft" class="hero-bg">
-  <div class="hero-overlay">
-    <h1>AUTONOMOUS<br>CARGO.<br><em>BEYOND</em><br>LIMITS.</h1>
-    <div class="hero-right">
-      <p class="hero-sub">A fixed-wing autonomous cargo aircraft engineered from day one for airworthiness — built for the routes that infrastructure left behind.</p>
-      <a class="btn btn-line" href="#aircraft">Explore JENU</a>
-      <a class="btn btn-fill" href="#contact">Request Package</a>
+<!-- HERO WRAPPER : les deux slides superposées -->
+<div id="hero-wrapper">
+
+  <!-- SLIDE 2 : AVION (derrière) -->
+  <div class="slide" id="slide-avion">
+    <img src="couverture - 2.png" alt="JENU autonomous cargo aircraft" class="slide-bg">
+    <div class="avion-overlay" id="avion-overlay">
+      <h1>AUTONOMOUS<br>CARGO.<br><em>BEYOND</em><br>LIMITS.</h1>
+      <div class="hero-bottom">
+        <a class="btn btn-line" href="#aircraft">Explore JENU</a>
+      </div>
     </div>
   </div>
-</section>
+
+  <!-- JENU reveal — par dessus tout -->
+  <div id="jenu-reveal" style="position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity 1s ease;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(6rem,15vw,14rem);letter-spacing:0.2em;color:rgba(255,255,255,0.95);text-shadow:0 0 80px rgba(255,255,255,0.3);">JENU</span>
+  </div>
+
+  <!-- SLIDE 1 : PISTE (devant) -->
+  <div class="slide" id="slide-piste">
+    <img src="piste.png" alt="Runway at sunset" class="slide-bg">
+    <div class="piste-overlay">
+      <img src="Fleur-2.png" alt="Canadian maple leaf" class="maple-leaf">
+      <div class="piste-title">
+        Canada's First<br>
+        Autonomous<br>
+        <em>5-Tonne</em><br>
+        Cargo Aircraft
+      </div>
+      <p class="piste-sub">Engineered for the routes infrastructure left behind</p>
+    </div>
+  </div>
+
+</div>
 
 <!-- INTRO -->
 <div class="intro fu">
@@ -300,7 +282,6 @@ footer{
 
 <!-- AIRCRAFT -->
 <section id="aircraft">
-  <!-- Swap for: <img src="jenu-side.jpg" alt="JENU aircraft" class="aircraft-img"> -->
   <div class="aircraft-placeholder">
     <svg viewBox="0 0 900 180" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M450 90 L830 108 L780 118 L450 103 L120 118 L70 108 Z" fill="#0a0a0a"/>
@@ -329,7 +310,6 @@ footer{
       <div class="spec-val">Autonomous</div>
       <div class="spec-note">No on-board pilot required</div>
     </div>
-    
   </div>
 </section>
 
@@ -368,7 +348,6 @@ footer{
     <span class="eyebrow">Investor Relations</span>
     <h2>JOIN THE<br>PROGRAM.</h2>
     <p>Prometheus Autonomous welcomes qualified investors and strategic partners. Full documentation is available under NDA.</p>
-    
     <div class="contact-detail" style="margin-top:1rem">
       <strong>Investor inquiries</strong>
       investors@prometheusautonomous.com
@@ -404,8 +383,51 @@ footer{
 </footer>
 
 <script>
+// Intersection observer pour fade-in
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}})},{threshold:0.08});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+const piste = document.getElementById('slide-piste');
+const jenuReveal = document.getElementById('jenu-reveal');
+const avionOverlay = document.getElementById('avion-overlay');
+
+avionOverlay.style.opacity = '0';
+avionOverlay.style.transition = 'opacity 0.8s ease';
+
+function runCycle() {
+  // Retour instantané à la piste (pas de transition)
+  piste.style.transition = 'none';
+  piste.style.opacity = '1';
+  piste.style.transform = 'scale(1)';
+  jenuReveal.style.opacity = '0';
+  avionOverlay.style.opacity = '0';
+
+  // PHASE 1 : Piste visible 3s
+  setTimeout(function(){
+    // PHASE 2 : Piste sort avec transition
+    piste.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+    piste.style.opacity = '0';
+    piste.style.transform = 'scale(1.06)';
+
+    // PHASE 3 : JENU apparaît après 1.5s
+    setTimeout(function(){
+      jenuReveal.style.opacity = '1';
+
+      // PHASE 4 : JENU disparaît après 2s, texte avion apparaît
+      setTimeout(function(){
+        jenuReveal.style.opacity = '0';
+        avionOverlay.style.opacity = '1';
+
+        // PHASE 5 : Texte avion visible 5s puis recommence
+        setTimeout(runCycle, 5000);
+      }, 2000);
+    }, 1500);
+  }, 3000);
+}
+
+runCycle();
+
+// Formulaire
 function handleSubmit(){
   const n=document.getElementById('fn').value.trim();
   const e=document.getElementById('fe').value.trim();
