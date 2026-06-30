@@ -230,6 +230,8 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
     <li><a href="#vision">Vision</a></li>
     <li><a href="#opportunity">Opportunity</a></li>
     <li><a href="#aircraft">Aircraft</a></li>
+    <li><a href="#loading">Loading System</a></li>
+    <li><a href="#market">Market</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="#contact">Investor Inquiry</a>
@@ -272,7 +274,7 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
 </div>
 
 <!-- THE PROBLEM -->
-<section id="problem" style="scroll-margin-top:115px;">
+<section id="problem" style="scroll-margin-top:115px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
   <div style="background:var(--off);padding:6rem 4vw;border-bottom:1px solid var(--rule);">
     <div style="max-width:1100px;margin:0 auto;">
       <div class="fu" style="margin-bottom:4rem;">
@@ -311,7 +313,7 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
 </section>
 
 <!-- VISION -->
-<section id="vision" style="scroll-margin-top:115px;">
+<section id="vision" style="scroll-margin-top:115px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
   <div style="background:linear-gradient(135deg,#050d1a 0%,#0a1628 50%,#0d1f35 100%);padding:6rem 4vw;border-bottom:1px solid rgba(255,255,255,0.06);">
     <div style="max-width:1100px;margin:0 auto;">
       <div class="fu" style="text-align:center;margin-bottom:4rem;">
@@ -343,7 +345,7 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
 </section>
 
 <!-- OPPORTUNITY -->
-<section id="opportunity" style="scroll-margin-top:115px;">
+<section id="opportunity" style="scroll-margin-top:115px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
   <div style="background:#fff;padding:6rem 4vw;border-bottom:1px solid var(--rule);">
     <div style="max-width:1100px;margin:0 auto;">
       <div class="fu" style="margin-bottom:4rem;">
@@ -377,9 +379,9 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
     <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.7) 25%,rgba(0,0,0,0.0) 45%);"></div>
 
     <!-- JENU + AUTONOMOUS CARGO AIRCRAFT , top center , appears last -->
-    <div id="jenu-title" style="opacity:0;transition:opacity 1.2s ease;position:absolute;top:6%;left:50%;transform:translateX(-50%);text-align:center;width:100%;">
+    <div id="jenu-title" style="opacity:0;transition:opacity 1.2s ease;position:absolute;top:6%;left:50%;transform:translateX(-50%);text-align:center;width:100%;display:flex;flex-direction:column;align-items:center;">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(6rem,14vw,13rem);color:#fff;line-height:0.85;letter-spacing:0.05em;">JENU</div>
-      <div style="font-size:0.75rem;letter-spacing:0.35em;text-transform:uppercase;color:#F5C842;margin-top:0.8rem;font-weight:700;">Autonomous Cargo Aircraft</div>
+      <div style="background:rgba(0,0,0,0.55);padding:0.4rem 1rem;font-size:0.75rem;letter-spacing:0.35em;text-transform:uppercase;color:#fff;margin-top:0.8rem;font-weight:700;">Autonomous Cargo Aircraft</div>
     </div>
 
     <!-- SPECS , left side centered vertically -->
@@ -391,7 +393,7 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
         </div>
         <div id="spec-2" style="opacity:0;transition:opacity 0.6s ease;border-top:1px solid rgba(255,255,255,0.2);padding-top:1.2rem;">
           <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;letter-spacing:0.1em;">HYBRID TURBOPROP</div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);letter-spacing:0.14em;text-transform:uppercase;margin-top:0.3rem;">Lower emissions, higher efficiency</div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);letter-spacing:0.14em;text-transform:uppercase;margin-top:0.3rem;">Pratt & Whitney PW127XT</div>
         </div>
         <div id="spec-3" style="opacity:0;transition:opacity 0.6s ease;border-top:1px solid rgba(255,255,255,0.2);padding-top:1.2rem;">
           <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;letter-spacing:0.1em;">AUTONOMOUS</div>
@@ -418,9 +420,15 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
     </div>
 
     <!-- MAX PAYLOAD + COUNTER , bottom right , away from engine -->
-    <div style="position:absolute;bottom:8%;right:6%;text-align:right;background:rgba(0,0,0,0.55);padding:1.2rem 1.8rem;">
-      <div style="font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;">Max Payload</div>
-      <div id="ac-counter" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:#fff;line-height:1;letter-spacing:0.04em;">0 KG</div>
+    <div style="position:absolute;bottom:8%;right:6%;text-align:right;background:rgba(0,0,0,0.55);padding:1.2rem 1.8rem;display:flex;gap:4.5rem;align-items:flex-end;">
+      <div>
+        <div style="font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;">Fuel Efficiency</div>
+        <div id="fuel-counter" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:#fff;line-height:1;letter-spacing:0.04em;">0%</div>
+      </div>
+      <div>
+        <div style="font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;">Max Payload</div>
+        <div id="ac-counter" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:#fff;line-height:1;letter-spacing:0.04em;">0 KG</div>
+      </div>
     </div>
 
 
@@ -431,6 +439,7 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
 (function(){
   const section = document.getElementById('aircraft');
   const counter = document.getElementById('ac-counter');
+  const fuelCounter = document.getElementById('fuel-counter');
   const jenuTitle = document.getElementById('jenu-title');
   let started = false;
 
@@ -438,24 +447,35 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
     if(entries[0].isIntersecting && !started){
       started = true;
       let count = 0;
+      let fuelCount = 0;
       const target = 5000;
+      const fuelTarget = 20;
       const steps = 80;
       const increment = target / steps;
+      const fuelIncrement = fuelTarget / steps;
       const intervalTime = 2500 / steps;
 
       const timer = setInterval(function(){
         count += increment;
+        fuelCount += fuelIncrement;
         if(count >= target){
           count = target;
+          fuelCount = fuelTarget;
           clearInterval(timer);
           counter.textContent = '5,000 KG';
+          fuelCounter.textContent = '20%';
           setTimeout(function(){
             counter.style.transition = 'opacity 0.5s ease';
             counter.style.opacity = '0';
+            fuelCounter.style.transition = 'opacity 0.5s ease';
+            fuelCounter.style.opacity = '0';
             setTimeout(function(){
               counter.textContent = '5 Tons';
               counter.style.color = '#fff';
               counter.style.opacity = '1';
+              fuelCounter.textContent = 'Up to 20%';
+              fuelCounter.style.color = '#fff';
+              fuelCounter.style.opacity = '1';
               [1,2,3,4,5,6,7,8].forEach(function(i){
                 setTimeout(function(){
                   document.getElementById('spec-'+i).style.opacity = '1';
@@ -468,6 +488,7 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
           }, 800);
         }
         counter.textContent = Math.round(count).toLocaleString() + ' KG';
+        fuelCounter.textContent = Math.round(fuelCount) + '%';
       }, intervalTime);
     }
   }, {threshold: 0.3});
@@ -476,8 +497,218 @@ footer{padding:1.8rem 4vw;display:flex;align-items:center;justify-content:space-
 })();
 </script>
 
+<!-- AUTONOMOUS LOADING SYSTEM -->
+<section id="loading" style="scroll-margin-top:115px;min-height:100vh;background:#0a0a0a;padding:5rem 4vw;">
+
+  <!-- Title -->
+  <div style="margin-bottom:3rem;">
+    <div style="font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:#F5C842;font-weight:700;margin-bottom:0.8rem;">Cargo Operations</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:#fff;line-height:0.9;letter-spacing:0.04em;">AUTONOMOUS<br>LOADING SYSTEM</div>
+    <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);margin-top:1rem;max-width:500px;line-height:1.75;">Zero crew. Full cargo. The JENU loading system operates autonomously from positioning to aircraft loading.</div>
+  </div>
+
+  <!-- 4 photos side by side -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:3rem;">
+    <div>
+      <img src="loading-1.png" alt="Step 1" style="width:100%;height:400px;object-fit:cover;object-position:center 20%;display:block;">
+      <div style="padding:1.2rem 0.5rem 0;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#F5C842;line-height:1;">01</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;">Robot positions itself</div>
+      </div>
+    </div>
+    <div>
+      <img src="loading-2.png" alt="Step 2" style="width:100%;height:400px;object-fit:cover;object-position:center 20%;display:block;">
+      <div style="padding:1.2rem 0.5rem 0;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#F5C842;line-height:1;">02</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;">Lifts and secures cargo</div>
+      </div>
+    </div>
+    <div>
+      <img src="loading-3.png" alt="Step 3" style="width:100%;height:400px;object-fit:cover;object-position:center 20%;display:block;">
+      <div style="padding:1.2rem 0.5rem 0;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#F5C842;line-height:1;">03</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;">Moves towards aircraft</div>
+      </div>
+    </div>
+    <div>
+      <img src="loading-4.png" alt="Step 4" style="width:100%;height:400px;object-fit:cover;object-position:center 20%;display:block;">
+      <div style="padding:1.2rem 0.5rem 0;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#F5C842;line-height:1;">04</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;">Loading complete</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specs bar -->
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;gap:1rem;">
+    <div style="text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#F5C842;">1,500 KG</div>
+      <div style="font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Max Load</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid rgba(255,255,255,0.1);padding-left:1rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;letter-spacing:0.08em;">PRECISION NAVIGATION</div>
+      <div style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:#F5C842;margin-top:0.3rem;">Laser SLAM + LiDAR</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid rgba(255,255,255,0.1);padding-left:1rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;letter-spacing:0.08em;">360° SAFETY PROTECTION</div>
+      <div style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:#F5C842;margin-top:0.3rem;">LiDAR + 3D Sensors</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid rgba(255,255,255,0.1);padding-left:1rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;letter-spacing:0.08em;">LONG RANGE OPERATION</div>
+      <div style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:#F5C842;margin-top:0.3rem;">Up to 8 hours</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid rgba(255,255,255,0.1);padding-left:1rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#fff;letter-spacing:0.08em;">FAST CHARGING</div>
+      <div style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:#F5C842;margin-top:0.3rem;">8 hours , Full charge</div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- MARKET -->
+<!-- MARKET OVERVIEW -->
+<section id="market" style="scroll-margin-top:115px;height:calc(100vh - 130px);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+
+  <!-- Square 1: Market Size -->
+  <div style="background:linear-gradient(135deg,#050d1a 0%,#0a1628 50%,#0d1f35 100%);padding:1.8rem 2.2rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div style="font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#F5C842;font-weight:700;margin-bottom:0.8rem;">Market Projections</div>
+    <div id="m-size" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4.2rem);color:#fff;line-height:0.9;">$0B+</div>
+    <div style="font-size:0.68rem;color:rgba(255,255,255,0.6);letter-spacing:0.05em;text-transform:uppercase;margin-top:0.5rem;">Global autonomous cargo aviation market by 2035</div>
+  </div>
+
+  <!-- Square 2: Growth Chart -->
+  <div style="background:#fff;padding:1.8rem 2.2rem;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--rule);">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem;">
+      <div>
+        <span class="eyebrow" style="color:#F5C842;font-size:0.58rem;">Decade of Growth</span>
+        <h2 style="font-size:clamp(1.1rem,1.8vw,1.5rem);line-height:1.1;">MARKET SIZE OUTLOOK</h2>
+      </div>
+      <div style="text-align:right;">
+        <div id="m-cagr" style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#1a4d8f;line-height:1;">0%</div>
+        <div style="font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);">CAGR*</div>
+      </div>
+    </div>
+    <div id="market-chart" style="display:flex;align-items:flex-end;gap:0.6rem;height:80px;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+        <div class="bar" data-h="8" style="width:100%;height:0%;background:#cfe0f5;transition:height 0.8s ease;"></div>
+        <div style="font-size:0.5rem;color:var(--fog);margin-top:0.3rem;">2024</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+        <div class="bar" data-h="12" style="width:100%;height:0%;background:#9dc0ec;transition:height 0.8s ease;"></div>
+        <div style="font-size:0.5rem;color:var(--fog);margin-top:0.3rem;">2025</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+        <div class="bar" data-h="24" style="width:100%;height:0%;background:#5e96d9;transition:height 0.8s ease;"></div>
+        <div style="font-size:0.5rem;color:var(--fog);margin-top:0.3rem;">2029</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+        <div class="bar" data-h="62" style="width:100%;height:0%;background:#2e6cb8;transition:height 0.8s ease;"></div>
+        <div style="font-size:0.5rem;color:var(--fog);margin-top:0.3rem;">2034</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+        <div class="bar" data-h="100" style="width:100%;height:0%;background:#1a4d8f;transition:height 0.8s ease;"></div>
+        <div style="font-size:0.5rem;color:var(--fog);margin-top:0.3rem;">2035+</div>
+      </div>
+    </div>
+    <p style="font-size:0.65rem;color:rgba(0,0,0,0.55);margin-top:0.6rem;line-height:1.5;">*CAGR = Compound Annual Growth Rate, the yearly growth rate of the market over this period.<br>Source: Global Market Insights, gminsights.com</p>
+  </div>
+
+  <!-- Square 3: Growth Drivers -->
+  <div style="background:var(--off);padding:1.8rem 2.2rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--rule);">
+    <span class="eyebrow" style="color:#F5C842;font-size:0.58rem;">Key Growth Drivers</span>
+    <h2 style="font-size:clamp(1.1rem,1.8vw,1.5rem);margin-bottom:0.8rem;line-height:1.1;">WHY THE MARKET IS ACCELERATING.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;">
+      <div style="padding:0.7rem;background:#fff;border:1px solid var(--rule);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:0.82rem;color:var(--ink);">OPERATING COSTS</div>
+        <p style="font-size:0.6rem;color:var(--fog);line-height:1.35;margin-top:0.2rem;">Reduced pilot costs and downtime.</p>
+      </div>
+      <div style="padding:0.7rem;background:#fff;border:1px solid var(--rule);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:0.82rem;color:var(--ink);">24/7 OPERATIONS</div>
+        <p style="font-size:0.6rem;color:var(--fog);line-height:1.35;margin-top:0.2rem;">Continuous, faster delivery cycles.</p>
+      </div>
+      <div style="padding:0.7rem;background:#fff;border:1px solid var(--rule);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:0.82rem;color:var(--ink);">REMOTE REGIONS</div>
+        <p style="font-size:0.6rem;color:var(--fog);line-height:1.35;margin-top:0.2rem;">Growing demand in Arctic, mining.</p>
+      </div>
+      <div style="padding:0.7rem;background:#fff;border:1px solid var(--rule);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:0.82rem;color:var(--ink);">DEFENSE & GOV.</div>
+        <p style="font-size:0.6rem;color:var(--fog);line-height:1.35;margin-top:0.2rem;">Rapidly accelerating investments.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Square 4: Opportunity -->
+  <div style="background:var(--ink);padding:1.8rem 2.2rem;display:flex;flex-direction:column;justify-content:center;">
+    <span class="eyebrow" style="color:#F5C842;font-size:0.58rem;">High-Growth Segments</span>
+    <h2 style="color:#fff;font-size:clamp(1.1rem,1.8vw,1.5rem);margin-bottom:1rem;line-height:1.1;">MASSIVE OPPORTUNITY AHEAD.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+      <div style="text-align:center;">
+        <div id="m-cargo" style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#F5C842;">0T+</div>
+        <div style="font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Payload Category, Few Global Players</div>
+      </div>
+      <div style="text-align:center;">
+        <div id="m-mult" style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#F5C842;">0x</div>
+        <div style="font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Multiplication</div>
+      </div>
+      <div style="text-align:center;">
+        <div id="m-def" style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#F5C842;">0%</div>
+        <div style="font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Defense Growth</div>
+      </div>
+    </div>
+    <p style="font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:0.9rem;line-height:1.5;">Sources: The Business Research Company , MarketsandMarkets , McKinsey & Company</p>
+  </div>
+
+</section>
+
+<script>
+(function(){
+  const section = document.getElementById('market');
+  const bars = document.querySelectorAll('#market-chart .bar');
+  let started = false;
+
+  function animateNumber(el, end, suffix, duration, prefix){
+    prefix = prefix || '';
+    let start = 0;
+    const steps = 40;
+    const increment = end / steps;
+    const stepTime = duration / steps;
+    let current = 0;
+    const timer = setInterval(function(){
+      current += increment;
+      if(current >= end){
+        current = end;
+        clearInterval(timer);
+      }
+      const display = (end % 1 === 0) ? Math.round(current) : current.toFixed(1);
+      el.textContent = prefix + display + suffix;
+    }, stepTime);
+  }
+
+  const observer = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && !started){
+      started = true;
+      bars.forEach(function(bar, i){
+        setTimeout(function(){
+          bar.style.height = bar.getAttribute('data-h') + '%';
+        }, i * 250);
+      });
+      animateNumber(document.getElementById('m-size'), 34, 'B+', 1800, '$');
+      animateNumber(document.getElementById('m-cagr'), 27.8, '%', 1800);
+      animateNumber(document.getElementById('m-cargo'), 3, 'T+', 1500);
+      animateNumber(document.getElementById('m-mult'), 15, 'x', 1500);
+      animateNumber(document.getElementById('m-def'), 20, '%', 1500);
+    }
+  }, {threshold: 0.3});
+
+  observer.observe(section);
+})();
+</script>
+
 <!-- CONTACT -->
-<section id="contact" style="scroll-margin-top:115px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)">
+
+
+<section id="contact" style="scroll-margin-top:115px;display:grid;grid-template-columns:1fr 1fr;align-items:center;border-top:1px solid var(--rule)">
   <div class="contact-l fu">
     <span class="eyebrow">Investor Relations</span>
     <h2>JOIN THE<br>PROGRAM.</h2>
